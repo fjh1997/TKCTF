@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .  # 指定 Dockerfile 的上下文目录
+      dockerfile: Dockerfile  # 指定 Dockerfile 文件
+    ports:
+      - "10001:10001"  # 映射宿主机和容器的端口
+    volumes:
+      - .:/code  # 将当前目录挂载到容器的 /code 目录
+    working_dir: /code  # 设置工作目录
+    command: ["python", "src.py"]  # 启动应用的命令
